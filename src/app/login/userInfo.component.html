@@ -1,0 +1,12 @@
+<div style="position:absolute; right:5px; top:5px; width:100px; border:1px solid rgb(50, 255, 170); border-radius: 5px; margin:3px">    
+    
+    <div *ngIf='isLogged()'>
+        <span style="display:block">login : {{ getUser().username }}</span>
+        <span style="display:block">firstname : {{ getUser().firstName }}</span>
+        <span style="display:block">lastname : {{ getUser().lastName }}</span>        
+    </div>
+    
+    <a [routerLink]="['/logout']" *ngIf='isLogged()'>Logout</a>
+    
+    <a [routerLink]="['/login']" *ngIf='!isLogged()'>Login</a>
+</div>

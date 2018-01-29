@@ -1,0 +1,30 @@
+<div style="font-size:14px;" class="panel panel-body">
+    Welcome to my angular demo. It is in angular and shows already a lot of basic concepts<br />
+    It was build with this command line :    $ ng build --deploy-url /releaseDemoAngular4/ --base-href /releaseDemoAngular4/  <br />
+    The angular4 source code project is here : <a href='./releaseDemoAngular4.zip'>releaseDemoAngular4.zip</a>
+    <ul>
+        <li style="font-size:12px; margin:5px"> You can navigate with menu, thanks to router concept </li>
+        <li style="font-size:12px; margin:5px"> Data are given from a fake backend service (json file), using http and Observable (not Promise) </li>
+        <li style="font-size:12px; margin:5px"> Each product image is clickable and lead to product detail page, also using router </li>
+        <li style="font-size:12px; margin:5px"> Star rating composant show how to implement nested component and passing data from parent component and notify parent component from star rating component </li>
+        <li style="font-size:12px; margin:5px"> Project also shows how to create and link modules, how to export Component, directive, or Pipe from a new module to make it visible for other modules <br/> Notice : les services n'ont pas besoin d'être exporté, ils sont accessibles en injection de dépendance depuis toute l'application (via les contructor())</li>
+         
+        <li style="font-size:12px; margin:5px"> It also embed a login module with fake authentification using httpInterceptor, and a dirty :) logged user panel</li>
+        <li style="font-size:12px; margin:5px"> it shows how to create and use a global variable map, using a simple service </li>
+        <li style="font-size:12px; margin:5px"> Shows concept of routing query parameters, which can be used to memorize previous page parameters in the request</li>
+        <li style="font-size:12px; margin:5px"> Another bonus : ci-dessous une table pas mal, récupérée avec : npm install --save ngx-super-table ; Voir <a href='https://github.com/andyperlitch/ngx-super-table'>ngx-super-table project on github</a></li>        
+    </ul>
+
+    <b>La table en question : </b>
+
+    <div style="height:100px">
+        <super-table
+            [rows]="rows"
+            [columns]="columns"
+            [options]="options"
+            [style.width.%]=50
+            [style.height.%]=50>
+        </super-table>            
+    </div>
+
+</div>

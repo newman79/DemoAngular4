@@ -1,0 +1,12 @@
+<div class="panel panel-heading" style="padding:0px">
+    <ul class='nav navbar-nav'>
+        <li><a [routerLink]="['/welcome']" [routerLinkActive]="['active']">Home</a></li>
+        <li><a [routerLink]="['/products']" [routerLinkActive]="['active']">Products</a></li>
+        <li><a [routerLink]="['/consult']" [routerLinkActive]="['active']">Products an users info</a></li>
+        <!-- <li><a [routerLink]="['/login']" [routerLinkActive]="['active']">Login</a></li> -->
+    </ul>
+</div>
+<div class='container' class='panel-maincontent'>
+    <router-outlet></router-outlet>
+</div>
+

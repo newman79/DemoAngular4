@@ -1,0 +1,15 @@
+<div class='panel panel-body'>
+    <div class='panel-heading tabbable custom-tabs tabs-animated' style="padding:0px"> 
+      <!-- tabs -->      
+      <ul class="nav nav-tabs">
+          <li><a [routerLink]="['products']" [routerLinkActive]="['active']">Products info</a></li>
+          <li><a [routerLink]="['users']" [routerLinkActive]="['active']">Users info</a></li>
+          <li><a [routerLink]="['about']" [routerLinkActive]="['active']">A propos</a></li>
+      </ul>
+
+    </div>
+    <div class='panel-body tab-content '>
+        <router-outlet></router-outlet>
+    </div>
+    
+</div>

@@ -1,0 +1,62 @@
+<div class='panel panel-body'>
+    <div class='panel-heading'>
+        Edition du produit
+    </div>
+    <div class='panel-body'>
+        <div style="float: left; right:20px; height:100%; padding-right:15px ">
+                <img [src]='productSelectedInUpdate.imageUrl' />
+        </div>
+        <div class="table-responsive" style="width: 50%; height:100% ; float:left ">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Value</th>
+                        <th>Previous</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> Nom </td>
+                        <td><input type="text" [(ngModel)]='productSelectedInUpdate.productName' [ngClass]='generateFieldUpdatedOrNot("productName")'><span *ngIf='editionOrCreation && productSelectedInUpdate.productName != productSelected.productName'>&nbsp;*</span></td>
+                        <td *ngIf='editionOrCreation'>{{ productSelected.productName }}</td>
+                    </tr>
+                    <tr>
+                        <td> Code </td>
+                        <td><input type="text" [(ngModel)]='productSelectedInUpdate.productCode' [ngClass]='generateFieldUpdatedOrNot("productCode")'><span *ngIf='editionOrCreation && productSelectedInUpdate.productCode != productSelected.productCode'>&nbsp;*</span></td>
+                        <td *ngIf='editionOrCreation'>{{ productSelected.productCode }}</td>
+                    </tr>
+                    <tr>
+                        <td> Prix </td>
+                        <td><input type="text" [(ngModel)]='productSelectedInUpdate.price' [ngClass]='generateFieldUpdatedOrNot("price")'><span *ngIf='editionOrCreation && productSelectedInUpdate.price != productSelected.price'>&nbsp;*</span></td>
+                        <td *ngIf='editionOrCreation'>{{ productSelected.price }}</td>
+                    </tr>
+                    <tr>
+                        <td> Date de sortie </td>
+                        <td><input type="text" [(ngModel)]='productSelectedInUpdate.releaseDate' [ngClass]='generateFieldUpdatedOrNot("releaseDate")'><span *ngIf='editionOrCreation && productSelectedInUpdate.releaseDate != productSelected.releaseDate'>&nbsp;*</span></td>
+                        <td *ngIf='editionOrCreation'>{{ productSelected.releaseDate }}</td>
+                    </tr>
+                    <tr>
+                        <td> Description </td>
+                        <td><input type="text" [(ngModel)]='productSelectedInUpdate.description' [ngClass]='generateFieldUpdatedOrNot("description")'><span *ngIf='editionOrCreation && productSelectedInUpdate.description != productSelected.description'>&nbsp;*</span></td>
+                        <td *ngIf='editionOrCreation'>{{ productSelected.description }}</td>
+                    </tr>
+                    <tr>
+                        <td> Succes </td>
+                        <td><input type="text" [(ngModel)]='productSelectedInUpdate.starRating' [ngClass]='generateFieldUpdatedOrNot("starRating")'><span *ngIf='editionOrCreation && productSelectedInUpdate.starRating != productSelected.starRating'>&nbsp;*</span>
+                        <pm-star rating='{{ productSelectedInUpdate.starRating }}'></pm-star> </td>
+                        <td *ngIf='editionOrCreation'>{{ productSelected.starRating }}</td>                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+</div>
+    <div class='panel-footer'>
+        <a [routerLink]="['/products']" [preserveQueryParams]="true" class='btn btn-default' style='width:80px'>
+            <i class='glyphicon glyphicon-chevron-left'></i> Back
+        </a>
+        <button *ngIf='!editionOrCreation' class='btn btn-primary' (click)="onCreateProduct()">Create</button> 
+        <button *ngIf='editionOrCreation && !areOriginAndEditedProductEquals()' class='btn btn-primary' (click)="onSaveProduct()">Save</button> 
+  </div>    
+
+</div>

@@ -1,0 +1,35 @@
+<div class='panel panel-body'>
+    <div class='panel-heading'>
+        Detail du produit
+    </div>
+    <div class='panel-body'>
+        <div style="float: left; right:20px; height:100%; padding-right:15px ">
+                <img [src]='imageUrl' />
+        </div>
+        <div class="table-responsive" style="width: 50%; height:100% ; float:left ">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Propriété</th>
+                        <th>Valeur</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let p of productMap'>
+                        <td>{{p.name}}</td>
+                        <td>{{p.value}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+</div>
+    <div class='panel-footer'>
+        <a class='btn btn-default' (click)='navigateToProducts()' style='width:80px'>
+            <i class='glyphicon glyphicon-chevron-left'></i> Back
+        </a>
+        <button class='btn btn-primary' [routerLink]="['/products',identifiant,'edit']" [preserveQueryParams]="true">
+            Edit
+         </button> 
+    </div>    
+
+</div>

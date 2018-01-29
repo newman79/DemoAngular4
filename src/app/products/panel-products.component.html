@@ -1,0 +1,60 @@
+<div class='panel panel-body'>
+    <div class='panel-heading'>
+        {{ title }}
+    </div>
+    <div class='panel-body'>
+        <div class='row'>
+            <div class='col-md-1'>Filtrer par nom :</div>
+            <div class='col-md-2'><input type='text' [(ngModel)]='filteredByName' /></div>
+            <div class='col-md-3'>Filter by {{ filteredByName }}</div>
+        </div>
+        <div class='row'>&nbsp;</div>
+        <div class='row'>
+            <div class='col-md-1'><label>Taille image</label></div>
+            <div class='col-md-1'><input type="range" min="20" max="100" [(ngModel)]='imageWidthPercent' /></div>
+            <div class='col-md-3'><label>{{ imageWidthPercent + '%' }} </label></div>
+        </div>
+        <div class="table-responsive">            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><button class='btn btn-primary' (click)="toggleImagesAndButton()" >&nbsp; {{ showOrHide ? "Hide":"Show" }}</button></th>
+                        <th>Nom</th>
+                        <th>Code</th>
+                        <th>Date de sortie</th>
+                        <th>Description</th>
+                        <th>Prix</th>
+                        <th>Succès</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let p of filteredProduct'>
+                            <td (click)='onClickOnProductDetail(p)'><img *ngIf='showOrHide' [src]='p.imageUrl' [style.width.px]='imageWidth' /></td>
+                            <td>{{p.productName}}</td>
+                            <td>{{p.productCode | lowercase | convertToSpaces:'-' }}</td>
+                            <td>{{p.releaseDate }}</td>
+                            <td><input [(ngModel)]='p.description' />
+                                <button class='' (click)="updateDescription(p)">
+                                    Update
+                                 </button>                                  
+                            </td>
+                            <td>{{p.price | currency:'USD':true:'1.2-2' }}</td>
+                            <td>
+                                <pm-star [rating]='p.starRating' (notify)='onNotify($event)' (click)='onNotify("souris")'>
+                                </pm-star>
+                            </td>
+                            <td>
+                               <button class='btn btn-primary' [routerLink]="['/products',p.productId,'edit']" [queryParams]='{ showOrHide: showOrHide, imageWidthPercent:imageWidthPercent, filteredByName:filteredByName }'>
+                                   Edit
+                                </button> 
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-info" [routerLink]="['/products',0,'edit']" [queryParams]='{ showOrHide: showOrHide, imageWidthPercent:imageWidthPercent, filteredByName:filteredByName }'>
+                <span class="glyphicon glyphicon-plus-sign"></span> &nbsp; Create
+            </button>
+        </div>
+    </div>
+</div>
