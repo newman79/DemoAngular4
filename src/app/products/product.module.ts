@@ -10,18 +10,18 @@ import { ProductGardService } from "./product-guard.service";
 
 import { ConvertToSpacesPipe } from "../shared/convert-to-spaces.pipe";
 import { MySharedModule } from "../shared/shared.module";
-import { PanelProductEditComponentComponent } from './product-edit-component/panel-product-edit.component';
+import { PanelProductEditComponent } from './product-edit-component/panel-product-edit.component';
 
 const ROUTES = [
   { path: 'products', component: PanelProductsComponent },
   { path: 'products/:id', canActivate : [ProductGardService], component: PanelProductDetailComponent }, // canActivate : ['ProductGardService'] --> garde pour le routing, fait des vérif avant d'aller là où le user veut aller
-  { path: 'products/0/edit', component: PanelProductEditComponentComponent },
-  { path: 'products/:id/edit', canActivate : [ProductGardService], component: PanelProductEditComponentComponent } 
+  { path: 'products/0/edit', component: PanelProductEditComponent },
+  { path: 'products/:id/edit', canActivate : [ProductGardService], component: PanelProductEditComponent } 
 ];
 
 @NgModule({
-    declarations: [ PanelProductDetailComponent, PanelProductsComponent, PanelProductEditComponentComponent ],
-    exports:[ PanelProductDetailComponent, PanelProductsComponent, PanelProductEditComponentComponent ],
+    declarations: [ PanelProductDetailComponent, PanelProductsComponent, PanelProductEditComponent ],
+    exports:[ PanelProductDetailComponent, PanelProductsComponent, PanelProductEditComponent ],
     imports: [
       FormsModule, 
       BrowserModule,

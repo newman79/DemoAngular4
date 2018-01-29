@@ -4,7 +4,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
 
 import { MySharedModule } from "../shared/shared.module";
-import { PanelTabsProductsUsersComponentComponent } from "./tabs-products-users-component.component";
+import { PanelTabsProductsUsersComponent } from "./tabs-products-users-component.component";
 import { ProductService } from "../products/product.service";
 import { FakeBackendInterceptor } from "../shared/fakeBackend.service";
 import { ProductModule } from "../products/product.module";
@@ -14,7 +14,7 @@ import { PanelAboutComponent } from "./about/panel-about.component";
 
 const ROUTES = [
   { path: 'consult', 
-    component: PanelTabsProductsUsersComponentComponent,
+    component: PanelTabsProductsUsersComponent,
     children : [
       { path : '', redirectTo:'products', pathMatch : 'full' },
       { path : 'products', component: PanelProductInfoComponent },
@@ -25,8 +25,8 @@ const ROUTES = [
 ];
 
 @NgModule({
-    declarations: [ PanelTabsProductsUsersComponentComponent, PanelProductInfoComponent, PanelUserInfoComponent, PanelAboutComponent  ],
-    exports:[ PanelTabsProductsUsersComponentComponent ],
+    declarations: [ PanelTabsProductsUsersComponent, PanelProductInfoComponent, PanelUserInfoComponent, PanelAboutComponent  ],
+    exports:[ PanelTabsProductsUsersComponent ],
     imports: [
       ProductModule,
       MySharedModule,

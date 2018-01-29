@@ -24,5 +24,6 @@ import { UserInfo } from "./userInfo.component";
 
     ],
     providers: [AuthenticationService, UserService],
+    
   })
   export class LoginModule  { }

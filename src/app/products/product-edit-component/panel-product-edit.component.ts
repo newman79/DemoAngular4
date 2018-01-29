@@ -9,7 +9,7 @@ import { ProductService } from '../product.service';
   templateUrl: './panel-product-edit.component.html',
   styleUrls: ['./panel-product-edit.component.css']
 })
-export class PanelProductEditComponentComponent implements OnInit {
+export class PanelProductEditComponent implements OnInit {
 
   id:number;
   productSelected : IProduct;

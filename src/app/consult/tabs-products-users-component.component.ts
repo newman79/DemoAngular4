@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './tabs-products-users-component.component.html',
   styleUrls: ['./tabs-products-users-component.component.css']
 })
-export class PanelTabsProductsUsersComponentComponent implements OnInit {
+export class PanelTabsProductsUsersComponent implements OnInit {
 
   constructor() { }
 
