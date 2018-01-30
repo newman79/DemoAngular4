@@ -6,10 +6,12 @@ module.exports = function (config) {
     basePath: '',
     frameworks: ['jasmine', '@angular/cli'],
     plugins: [
-      require('karma-jasmine'),
+      require('karma-jasmine'),   // require est une instruction Node.js qui permet de tirer des dépendances
       require('karma-chrome-launcher'),
-      require('karma-jasmine-html-reporter'),
+      require('karma-jasmine-html-reporter'), // click "Debug" in browser to see it
       require('karma-coverage-istanbul-reporter'),
+      require('karma-htmlfile-reporter'), // crashing w/ strange socket error
+      require('karma-mocha-reporter'),
       require('@angular/cli/plugins/karma')
     ],
     client:{
@@ -22,7 +24,7 @@ module.exports = function (config) {
     angularCli: {
       environment: 'dev'
     },
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['progress', 'kjhtml', 'mocha'], // 'html'], // this karma-html-reporter, see above
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

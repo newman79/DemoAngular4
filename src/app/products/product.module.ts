@@ -12,7 +12,7 @@ import { ConvertToSpacesPipe } from "../shared/convert-to-spaces.pipe";
 import { MySharedModule } from "../shared/shared.module";
 import { PanelProductEditComponent } from './product-edit-component/panel-product-edit.component';
 
-const ROUTES = [
+export const PRODUCTS_ROUTES = [
   { path: 'products', component: PanelProductsComponent },
   { path: 'products/:id', canActivate : [ProductGardService], component: PanelProductDetailComponent }, // canActivate : ['ProductGardService'] --> garde pour le routing, fait des vérif avant d'aller là où le user veut aller
   { path: 'products/0/edit', component: PanelProductEditComponent },
@@ -26,7 +26,7 @@ const ROUTES = [
       FormsModule, 
       BrowserModule,
       MySharedModule,
-      RouterModule.forChild(ROUTES)
+      RouterModule.forChild(PRODUCTS_ROUTES)
 
     ],
     providers: [ProductService, ProductGardService],

@@ -17,6 +17,8 @@ import { RouterLinkActive } from '@angular/router';
     
 })
 export class MainMenuComponent {
-    constructor() {}
 
+    testProperty:string = 'rien';
+    
+    constructor() {}
 }

@@ -5,7 +5,7 @@ import { RouterModule, Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { SuperTableModule } from 'ngx-super-table';
 
-import { RouterLinkActive } from '@angular/router';
+import { RouterLinkActive, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ProductGardService } from './products/product-guard.service';
@@ -26,14 +26,14 @@ import { fakeBackendProvider, FakeBackendInterceptor } from './shared/fakeBacken
 import { Globals } from './shared/globals-variables';
 import { ConsultModule } from './consult/consult.module';
 
-const ROUTES = [
+export const APPMODULE_ROUTES:Routes = [
       // ces 2 mapping sont déplacés dans le module ProductModule avec RouterModule.forChild
       //{ path: 'products', component: PanelProductsComponent },
       //{ path: 'products/:id', canActivate : [ProductGardService], component: PanelProductDetailComponent }, // canActivate : ['ProductGardService'] --> garde pour le routing, fait des vérif avant d'aller là où le user veut aller
       { path: 'welcome', component: PanelWelcomeComponent },
+      { path: 'pathInconnu', component:PanelPathInconnuComponent },
       { path: '', redirectTo : 'welcome', pathMatch:'full' },
       { path: '**', component:PanelPathInconnuComponent }
-
 ];
 
 
@@ -50,7 +50,7 @@ const ROUTES = [
     FormsModule,
     HttpClientModule,
     SuperTableModule,
-    RouterModule.forRoot(ROUTES, { useHash : true} )
+    RouterModule.forRoot(APPMODULE_ROUTES, { useHash : true} )
   ],
   providers: [ FakeBackendInterceptor, fakeBackendProvider, Globals ],
   bootstrap: [AppComponent],  
